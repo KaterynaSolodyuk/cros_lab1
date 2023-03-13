@@ -1,17 +1,39 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title>Лабораторна робота №1</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>Виконала студенка групи КН-32 Солодюк К.О.</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content :fullscreen="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Завдання №2 </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="p_background">
+        Згенерувати матрицю
+        розміром NxN.Виокремити за
+        допомогою кольору
+        усі парні від’ємні
+        елементи кратні 7.
+      </p>
+      <ion-item>
+        <ion-label position="floating">Розмір матриці</ion-label>
+        <ion-input class="input" type="number" id="N" value="5" #InputN></ion-input>
+      </ion-item>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <ion-button class="button" (click)="ras(InputN.value)">Cформувати матрицю</ion-button>
+      <ion-grid>
+        <ion-row *ngFor="let row of a;">
+          <ion-col *ngFor="let col of row; " [ngStyle]="{backgroundColor:
+            getColor(col)}">
+            {{col}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
