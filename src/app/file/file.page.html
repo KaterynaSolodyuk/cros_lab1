@@ -11,16 +11,24 @@
           <ion-item
             button
             *ngFor="let item of data_users; index as i"
-            detail
+            detail="false"
             (click)="toggleDetails(i)"
           >
-            <ion-label *ngIf="!showDetails[i]" text-wrap>
-              <p [ngStyle]="{color: getGreenColor(item.age, max)}">
-                <span> Ім'я: </span> {{item.name}}
-                <span>Вік:</span> {{item.age}}
+          <!-- <ion-label *ngIf="!showDetails[i]" text-wrap> -->
+          <ion-label text-wrap>
+              <!-- <p [ngStyle]="{color: getGreenColor(item.age, item.max)}"> -->
+              <p>
+                <span>Назва факультету:</span> {{item.faculty}}
+                <br>
+                <span> ПІБ декана: </span> <span [ngStyle]="{color: getGreenColor(item.fullname, item.fullname)}">{{item.fullname}}</span>
+                <br>
+                <span>Телефон:</span> {{item.phone}}
+                <br>
+                <span>Адреса:</span> {{item.address}}
+                <!-- <span>Вік:</span> {{item.age}} -->
               </p>
             </ion-label>
-            <ion-text *ngIf="showDetails[i]">
+            <!-- <ion-text *ngIf="showDetails[i]">
               <ion-text>
                 <h2 [ngStyle]="{color: getBlueColor(item.mother.age, min)}">
                   Мати
@@ -33,7 +41,7 @@
               </ion-text>
               <h2>Основна інформація</h2>
               {{getYes(item.married)}} {{getDog(item.dog)}}
-            </ion-text>
+            </ion-text> -->
           </ion-item>
         </ion-list>
       </ion-item>

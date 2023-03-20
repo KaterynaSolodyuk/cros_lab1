@@ -10,7 +10,7 @@ export class FilePage implements OnInit {
   data: any = [];
   data_users: any = [];
   showDetails: boolean[] = new Array(1000).fill(false);
-  dataUrl = 'jsonUrl';
+  dataUrl = 'https://api.jsonbin.io/v3/qs/6418d737c0e7653a058b7750';
   loading: any;
   max: number = 0;
   min: number = 100;
@@ -36,8 +36,8 @@ export class FilePage implements OnInit {
           this.data_users.push(this.data[i][0]);
           i++;
         }
-        this.getMaxAge();
-        this.getMinAge();
+        // this.getMaxAge();
+        // this.getMinAge();
         this.loading.dismiss();
       });
   }
